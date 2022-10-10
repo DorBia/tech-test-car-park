@@ -1,16 +1,20 @@
 package org.example;
 
+import java.util.Random;
+
 public abstract class RegPlateUtils {
 
-    public static String generateRegPlate() {
-        int letter1 = 'A' + (int)(Math.random() * ('Z' - 'A'));
-        int letter2 = 'A' + (int)(Math.random() * ('Z' - 'A'));
-        int letter3 = 'A' + (int)(Math.random() * ('Z' - 'A'));
-        int letter4 = 'A' + (int)(Math.random() * ('Z' - 'A'));
-        int letter5 = 'A' + (int)(Math.random() * ('Z' - 'A'));
+    static Random random = new Random();
 
-        int digit1 = (int)(Math.random() * 10);
-        int digit2 = (int)(Math.random() * 10);
-        return "" + (char)(letter1) + (char)(letter2) + digit1 + digit2 + " " + (char)(letter3) + (char)(letter4) + (char)(letter5);
+    public static String generateRegPlate() {
+        char letter1 = (char)('A' + random.nextInt(26));
+        char letter2 = (char)('A' + random.nextInt(26));
+        char letter3 = (char)('A' + random.nextInt(26));
+        char letter4 = (char)('A' + random.nextInt(26));
+        char letter5 = (char)('A' + random.nextInt(26));
+
+        int digit1 = random.nextInt(10);
+        int digit2 = random.nextInt(10);
+        return "" + letter1 + letter2 + digit1 + digit2 + " " + letter3 + letter4 + letter5;
     }
 }

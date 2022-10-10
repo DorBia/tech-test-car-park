@@ -6,5 +6,6 @@ public class Main {
 
         Car car = new Car();
         System.out.println(car);
+
     }
 }

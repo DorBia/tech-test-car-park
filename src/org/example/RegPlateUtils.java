@@ -15,6 +15,7 @@ public abstract class RegPlateUtils {
 
         int digit1 = random.nextInt(10);
         int digit2 = random.nextInt(10);
+
         return "" + letter1 + letter2 + digit1 + digit2 + " " + letter3 + letter4 + letter5;
     }
 }

@@ -11,10 +11,6 @@ public abstract class Vehicle {
         this.vehicleSize = vehicleSize;
     }
 
-    public String getLicensePlate() {
-        return regPlate;
-    }
-
     public VehicleType getVehicleType() {
         return vehicleType;
     }
@@ -25,9 +21,6 @@ public abstract class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle{" +
-                "regPlate='" + regPlate + '\'' +
-                ", type='" + vehicleType + '\'' +
-                '}';
+        return vehicleType.toString().toUpperCase() + " plate number: " + regPlate;
     }
 }

@@ -24,6 +24,8 @@ public class Main {
             }
         }
 
-        carPark.listVehicles();
+
+
+        Controller.manageParking(carPark);
     }
 }

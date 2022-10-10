@@ -2,10 +2,10 @@ package org.example;
 
 public abstract class Vehicle {
     private final String regPlate;
-    private final String vehicleType;
+    private final VehicleType vehicleType;
     private final int vehicleSize;
 
-    public Vehicle(String regPlate, String vehicleType, int vehicleSize) {
+    public Vehicle(String regPlate, VehicleType vehicleType, int vehicleSize) {
         this.regPlate = regPlate;
         this.vehicleType = vehicleType;
         this.vehicleSize = vehicleSize;
@@ -15,7 +15,7 @@ public abstract class Vehicle {
         return regPlate;
     }
 
-    public String getVehicleType() {
+    public VehicleType getVehicleType() {
         return vehicleType;
     }
 

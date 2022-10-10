@@ -6,27 +6,9 @@ import static org.example.VehicleType.*;
 
 public class Controller {
 
-    public static void displayGreeting() {
-        System.out.println("Welcome to our amazing parking.");
-        System.out.println("We have a few commands you can run.");
-    }
-
-    public static void displayCommands() {
-        System.out.println("Press 1 to park a car.");
-        System.out.println("Press 2 to park a van.");
-        System.out.println("Press 3 to park a motorbike.");
-        System.out.println("Press 4 to see how many spots there are in total.");
-        System.out.println("Press 5 to list all vehicles parked.");
-        System.out.println("Press anything to exit.");
-    }
-
-    public static void displayRemainder() {
-        System.out.println("To print commands press 0.");
-    }
-
     public static void manageParking(CarPark carPark) {
         boolean isActive = true;
-        displayCommands();
+        Display.displayCommands();
 
         while(isActive){
 
@@ -35,18 +17,31 @@ public class Controller {
 
             switch (option) {
                 case "0":
-                    displayCommands();
+                    Display.displayCommands();
+                    break;
                 case "1":
-                    carPark.addVehicle(VehicleFactory.createVehicle(car));
-                    System.out.println("Car parked.");
+                    if (carPark.getAvailableSpaces() > 0) {
+                        carPark.addVehicle(VehicleFactory.createVehicle(car));
+                        System.out.println("Car parked.");
+                    } else {
+                        System.out.println("We don't have spaces for cars anymore. Sorry.");
+                    }
                     break;
                 case "2":
-                    carPark.addVehicle(VehicleFactory.createVehicle(van));
-                    System.out.println("Van parked.");
+                    if (carPark.getAvailableVanSpaces() > 0) {
+                        carPark.addVehicle(VehicleFactory.createVehicle(van));
+                        System.out.println("Van parked.");
+                    } else {
+                        System.out.println("We don't have spaces for vans anymore. Sorry.");
+                    }
                     break;
                 case "3":
-                    carPark.addVehicle(VehicleFactory.createVehicle(motorbike));
-                    System.out.println("Motorbike parked.");
+                    if (carPark.getAvailableMotorbikeSpots() > 0) {
+                        carPark.addVehicle(VehicleFactory.createVehicle(motorbike));
+                        System.out.println("Motorbike parked.");
+                    } else {
+                        System.out.println("We don't have spaces for bikes anymore. Sorry.");
+                    }
                     break;
                 case "4":
                     System.out.println("Available single spaces: " + carPark.getAvailableSpaces());
@@ -59,7 +54,9 @@ public class Controller {
                 default:
                     isActive = false;
         }
-            displayRemainder();
+            Display.displayRemainder();
+            System.out.println("Choose an option.");
+            System.out.println();
 
 
         }
